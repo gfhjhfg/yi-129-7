@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3</title>
+    <style>
+        body {
+            text-align: center;
+            font-size: 20px;
+        }
+        input {
+            outline: none;
+            /* border: transparent; */
+        }
+    </style>
+</head>
+<body>
+    <p>婚恋网站
+        <input type="text" onblur="text()" onclick="ontext()" placeholder="手机号">
+        <input type="password" placeholder="密码" onblur="pass()" onclick="onpass()">
+        <button>登录</button>
+    </p>
+    <script>
+        function ontext(){
+            var input1=document.querySelectorAll("input")[0]
+            // console.log(input1)
+            // input1.style.border='transparent';
+            input1.style.borderColor='red';
+        }
+        function text(){
+            var input1=document.querySelectorAll("input")[0]
+            // console.log(input1)
+            input1.style.borderColor='black';
+        }
+
+        function onpass(){
+            var input2=document.querySelectorAll("input")[1]
+            input2.style.borderColor='red';
+        }
+        function pass(){
+            var input2=document.querySelectorAll("input")[1]
+            // console.log(input1)
+            input2.style.borderColor='black';
+        }
+    </script>
+</body>
+</html>

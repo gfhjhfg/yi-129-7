@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #000;
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #ccc;
+        }
+        .delete-btn {
+            cursor: pointer;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <!-- <table border="1" cellspacing="0">
+        <tbody>
+            <tr>
+                <th style="background-color: #ccc;">姓名</th>
+                <th>科目</th>
+                <th>成绩</th>
+            </tr>
+            <tr>
+                <td>魏璎珞</td>
+                <td>JavaScript</td>
+                <td>100</td>
+            </tr>
+            <tr>
+                <td>弘历</td>
+                <td>JavaScript</td>
+                <td>90</td>
+            </tr>
+        </tbody>
+    </table> -->
+
+    <h2>动态生成表格案例</h2>
+    <div data-abc="123"></div>
+    <table id="studentTable">
+        <thead>
+            <tr>
+                <th>姓名</th>
+                <th>科目</th>
+                <th>成绩</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+    <!-- <script>
+        var data={
+            name:["魏璎珞","弘历","傅恒","明玉"],
+            java:["JavaScript0","JavaScript0","JavaScript0","JavaScript0"],
+            score:["100","90","99","89"],
+            
+        }
+    </script> -->
+
+    <script>
+        var students = [
+            { name: '魏璎珞', subject: 'JavaScript', score: 100 },
+            { name: '弘历', subject: 'JavaScript', score: 90 },
+            { name: '傅恒', subject: 'JavaScript', score: 99 },
+            { name: '明玉', subject: 'JavaScript', score: 89 }
+        ];
+        var tbody = document.querySelector('#studentTable tbody');
+
+        // students.forEach(student => {
+        //     var row = document.createElement('tr');
+
+        //     ['name', 'subject', 'score'].forEach(key => {
+        //         var cell = document.createElement('td');
+        //         cell.textContent = student[key];
+        //         row.appendChild(cell);
+        //     });
+
+
+        var tbody=document.querySelector("tbody")
+        // tbody.addEventListener("click",function(e){
+        //     e.stopPropagation();
+        //     if(e.target.className==="action"){
+        //         e.target.parenNode.parentNode.remove();
+        //     }
+        // })
+        var keys=["name","subject","score","action"]
+        for(var i=0;i<students.length;i++){
+            var tr=document.createElement("tr")
+            // for(var key in students[i]){
+            //     var td=document.createElement("td")
+            //     td.innerText=students[i][key]
+            //     tr.appendChild(td)
+            // }
+            for(var j=0;j<keys.length;j++){
+                var td=document.createElement("td")
+                var propName=keys[j];
+                var innerMassage=students[i][propName]
+                // var actionHTML='<button class="action" data-id="'+ students[i].id+'">删除</button>'
+                // var actionHTML='<button>删除</button>'
+                td.innerHTML=innerMassage?innerMassage:"<button>删除</button>"
+                tr.appendChild(td)
+            }
+            tbody.appendChild(tr)
+        }
+
+            // var deleteCell = document.createElement('td');
+            // var deleteBtn = document.createElement('span');
+            // deleteBtn.className = 'delete-btn';
+            // deleteBtn.textContent = '删除';
+            // deleteBtn.addEventListener('click', () => {
+            //     tbody.removeChild(row);
+            // });
+            // deleteCell.appendChild(deleteBtn);
+            // row.appendChild(deleteCell);
+            
+            // tbody.appendChild(row);
+        // });
+    </script>
+</body>
+</html>

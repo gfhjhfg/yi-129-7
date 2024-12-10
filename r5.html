@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5</title>
+    <style>
+        body{
+            text-align: center;
+        }
+        .all {
+            width: 300px;
+            margin: 0 auto;
+            position: relative;
+            border: 1px solid #000;
+        }
+        input {
+            width: 200px;
+            height: 30px;
+            outline: none;
+            border: none;
+            border-bottom: 1px solid #bbb;
+        }
+        img {
+            width: 30px;
+            height: 30px;
+            position: absolute;
+            top: 88px;
+            right: 75px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="all">
+        <p>京东登录</p>
+        <input type="text" class="put1" placeholder="用户名/邮箱"><br>
+        <input type="password" placeholder="密码" >
+        <img src="./03-课后作业/img/close.png" alt="" onclick="dian()">
+    </div>
+    <script>
+        function dian(){
+            var put=document.querySelectorAll("input")[1];
+            var img=document.querySelector("img")
+            // img.src="./03-课后作业/img/open.png"
+            // put.type="text";
+            if(put.type=="text"){
+                put.type="password";
+                img.src="./03-课后作业/img/close.png"
+            }else{
+                img.src="./03-课后作业/img/open.png"
+                put.type="text";
+            }
+        }
+    </script>
+</body>
+</html>

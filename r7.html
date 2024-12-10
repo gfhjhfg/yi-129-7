@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>7</title>
+    <style>
+        a {
+            display: block;
+            width: 80%;
+            height: 300px;
+            margin: 10px auto;
+            background-color: skyblue;
+            color: black;
+            text-decoration: none;
+            text-align: center;
+            font-size: 100px;
+        }
+    </style>
+</head>
+<body>
+    <a href="./index.html">点击此区域回主页面</a>
+    <!-- # 7. 请编写一段逻辑将包含嵌套数组的数组处理后返回一个新数组，
+     其中所有元素都被扁平化到同一层级。例子: [1,[2,[3]]] => [1,2,3] -->
+    <script>
+        var arr=[1,2,3,[3,2],4,[1,4,[4,4],2],2];//1,2,3,
+        var arr1=[];
+        for(var i=0;i<arr.length;i++){
+            if(typeof arr[i]=="number"){
+                // arr1+=arr[i];
+                arr1.push(arr[i]);
+            }else{
+                for(var j=0;j<arr[i].length;j++){
+                    arr.push(arr[i][j]);
+                    // console.log(a);
+                }
+            }
+        }
+        console.log(arr1);
+    </script>
+</body>
+</html>

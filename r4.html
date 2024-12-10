@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4</title>
+    <style>
+        body {
+            text-align: center;
+        }
+        .button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            margin: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .button:hover {
+            background-color: #e0e0e0;
+            border-radius: 10px;
+        }
+        .news-title {
+            font-size: 20px;
+            font-weight: bold;
+            color: #000000;
+            margin-bottom: 20px;
+            transition: font-size 0.3s ease;
+        }
+        </style>
+</head>
+<body>
+    <div>
+        <button class="button" onclick="increaseFontSize(50)">变大50px</button>
+        <button class="button" onclick="increaseFontSize(80)">变大80px</button>
+    </div>
+    <div class="news-title" id="newsTitle">出了个大新闻！！</div>
+
+    <script>
+        function increaseFontSize(px) {
+            var title = document.getElementById('newsTitle');
+            // console.log(getPropertyValue)
+            // console.log(window.getComputedStyle(title).getPropertyValue("font-size"))
+            console.log(window.getComputedStyle(title).fontSize);
+            // console.log(parseInt(window.getComputedStyle(title).fontSize));
+            var currentSize = parseInt(window.getComputedStyle(title).fontSize);
+            title.style.fontSize = (currentSize + px) + 'px';
+        }
+    </script>
+</body>
+</html>

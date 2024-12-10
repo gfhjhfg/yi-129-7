@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2</title>
+    <style>
+        div{
+            margin: 50px 0 0 100px;
+        }
+        .heart {
+            /* font-size: 24px; */
+            color: black;
+            cursor: pointer;
+            margin: 10px;
+            display: inline-block;
+        }
+        .red {
+            color: red;
+        }
+        .comment {
+            font-size: 30px;
+            color: green;
+        }
+        span{
+            font-size: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div id="heartContainer"></div>
+    <div id="comment" class="comment"></div>
+
+    <script>
+        function createHearts(n) {
+            var container = document.getElementById('heartContainer');
+            container.innerHTML = '';
+            let hearts = [];
+
+            for (let i = 1; i <= n; i++) {
+                var heart = document.createElement('span');
+                heart.textContent = '♥';
+                heart.setAttribute('data-index', i);
+                heart.addEventListener('click', function() {
+                    hearts.forEach(h => h.classList.remove('red'));
+                    for (let j = 1; j <= this.getAttribute('data-index'); j++) {
+                        hearts[j - 1].classList.add('red');
+                    }
+                    if(i==1){
+                        document.getElementById('comment').textContent = '心碎';
+                    }
+                    if(i==2){
+                        document.getElementById('comment').textContent = '伤心';
+                    }
+                    if(i==3){
+                        document.getElementById('comment').textContent = '不开心';
+                    }
+                    if(i==4){
+                        document.getElementById('comment').textContent = '良好';
+                    }
+                    if(i==5){
+                        document.getElementById('comment').textContent = '开心';
+                    }
+                });
+                hearts.push(heart);
+                container.appendChild(heart);
+            }
+        }
+        createHearts(5);
+    </script>
+
+    <!-- <script>
+        var hearts=document.querySelectorAll(".container svg");
+        var container=document.querySelector(".container");
+        container.addEventListener("click",function (e){
+            if(e.target.tagName=='use'){
+                var index=parseInt(e.target.parentNode.dataset.index);
+                for(var i=0;i<=hearts.length;i++){
+                    hearts[i].style.color=i<=index?'red':'black';
+                }
+            }
+        })
+        console.log(hearts);
+    </script> -->
+</body>
+</html>
