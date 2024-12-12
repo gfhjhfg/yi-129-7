@@ -77,55 +77,62 @@
         ];
         var tbody = document.querySelector('#studentTable tbody');
 
-        // students.forEach(student => {
-        //     var row = document.createElement('tr');
+        students.forEach(student => {
+            var row = document.createElement('tr');
 
-        //     ['name', 'subject', 'score'].forEach(key => {
-        //         var cell = document.createElement('td');
-        //         cell.textContent = student[key];
-        //         row.appendChild(cell);
-        //     });
+            ['name', 'subject', 'score'].forEach(key => {
+                var cell = document.createElement('td');
+                cell.textContent = student[key];
+                row.appendChild(cell);
+            });
 
 
-        var tbody=document.querySelector("tbody")
+        // var tbody=document.querySelector("tbody")
+
         // tbody.addEventListener("click",function(e){
         //     e.stopPropagation();
         //     if(e.target.className==="action"){
         //         e.target.parenNode.parentNode.remove();
         //     }
         // })
-        var keys=["name","subject","score","action"]
-        for(var i=0;i<students.length;i++){
-            var tr=document.createElement("tr")
-            // for(var key in students[i]){
-            //     var td=document.createElement("td")
-            //     td.innerText=students[i][key]
-            //     tr.appendChild(td)
-            // }
-            for(var j=0;j<keys.length;j++){
-                var td=document.createElement("td")
-                var propName=keys[j];
-                var innerMassage=students[i][propName]
-                // var actionHTML='<button class="action" data-id="'+ students[i].id+'">删除</button>'
-                // var actionHTML='<button>删除</button>'
-                td.innerHTML=innerMassage?innerMassage:"<button>删除</button>"
-                tr.appendChild(td)
-            }
-            tbody.appendChild(tr)
-        }
 
-            // var deleteCell = document.createElement('td');
-            // var deleteBtn = document.createElement('span');
-            // deleteBtn.className = 'delete-btn';
-            // deleteBtn.textContent = '删除';
-            // deleteBtn.addEventListener('click', () => {
-            //     tbody.removeChild(row);
-            // });
-            // deleteCell.appendChild(deleteBtn);
-            // row.appendChild(deleteCell);
+        // var keys=["name","subject","score","action"]
+        // for(var i=0;i<students.length;i++){
+        //     var tr=document.createElement("tr")
+        //     // for(var key in students[i]){
+        //     //     var td=document.createElement("td")
+        //     //     td.innerText=students[i][key]
+        //     //     tr.appendChild(td)
+        //     // }
+        //     for(var j=0;j<keys.length;j++){
+        //         var td=document.createElement("td")
+        //         var propName=keys[j];
+        //         var innerMassage=students[i][propName]
+        //         // var actionHTML='<button class="action" data-id="'+ students[i].id+'">删除</button>'
+        //         // var actionHTML='<button>删除</button>'
+        //         td.innerHTML=innerMassage?innerMassage:"<button>删除</button>"
+        //         tr.appendChild(td)
+        //     }
+        //     tbody.appendChild(tr)
+        // }
+
+            var deleteCell = document.createElement('td');
+            var deleteBtn = document.createElement('span');
+            deleteBtn.className = 'delete-btn';
+            deleteBtn.textContent = '删除';
+            deleteBtn.addEventListener('click', () => {
+                tbody.removeChild(row);
+            });
+            deleteCell.appendChild(deleteBtn);
+            row.appendChild(deleteCell);
             
-            // tbody.appendChild(row);
-        // });
+            tbody.appendChild(row);
+        });
+
+        // var button=document.querySelector("button");
+        // button.addEventListener("click",function(){
+        //     tbody.removeChild(tr);
+        // })
     </script>
 </body>
 </html>

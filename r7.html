@@ -4,39 +4,71 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>7</title>
-    <style>
-        a {
-            display: block;
-            width: 80%;
-            height: 300px;
-            margin: 10px auto;
-            background-color: skyblue;
-            color: black;
-            text-decoration: none;
-            text-align: center;
-            font-size: 100px;
-        }
-    </style>
+        <style>
+            body{
+                text-align: center;
+            }
+            textarea{
+                width: 200px;
+                height: 200px;
+                outline-color: pink;
+            }
+            ul li {
+                width: 393px;
+                height: 50px;
+                margin: 5px auto;
+                background-color: aquamarine;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 0 20px;
+                box-sizing: border-box;
+            }
+            button {
+                cursor: pointer;
+            }
+        </style>
 </head>
 <body>
-    <a href="./index.html">点击此区域回主页面</a>
-    <!-- # 7. 请编写一段逻辑将包含嵌套数组的数组处理后返回一个新数组，
-     其中所有元素都被扁平化到同一层级。例子: [1,[2,[3]]] => [1,2,3] -->
+    <textarea name="" id=""></textarea>
+    <button>发布</button>
+    <button>删除所有留言</button>
+    <ul>
+        <!-- <li>
+            <span>hhh</span>
+            <button class="det">删除</button>
+        </li>
+        <li>
+            <span>hhh</span>
+            <button class="det">删除</button>
+        </li> -->
+    </ul>
+
     <script>
-        var arr=[1,2,3,[3,2],4,[1,4,[4,4],2],2];//1,2,3,
-        var arr1=[];
-        for(var i=0;i<arr.length;i++){
-            if(typeof arr[i]=="number"){
-                // arr1+=arr[i];
-                arr1.push(arr[i]);
-            }else{
-                for(var j=0;j<arr[i].length;j++){
-                    arr.push(arr[i][j]);
-                    // console.log(a);
-                }
-            }
-        }
-        console.log(arr1);
+        var btn1=document.querySelectorAll("button")[0];
+        btn1.addEventListener("click",function(){
+            var ul=document.querySelector("ul");
+            var li=document.createElement("li");
+            var button=document.createElement("button");
+            var text=document.querySelector("textarea")
+            var value=text.value;
+            button.textContent="删除";
+            ul.appendChild(li);
+            li.innerHTML='<span>'+value+'</span>';
+            li.appendChild(button);
+
+            button.addEventListener("click",function(){
+                // liall.remove();
+                button.parentNode.outerHTML='';
+            })
+            text.value='';
+        })
+        var btn2=document.querySelectorAll("button")[1];
+        btn2.addEventListener("click",function(){
+            var ul=document.querySelector("ul");
+            ul.innerHTML='';
+        })
+        
     </script>
 </body>
 </html>
